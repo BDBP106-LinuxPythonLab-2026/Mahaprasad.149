@@ -1,0 +1,18 @@
+Question 2.
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+
+Explanation: \u: It displays current username.
+	     @: it separates use and host
+	     \h: it displays short name of host.
+	     \w: it displays full path of current folder
+	     \033[01;32m: Makes the text bold green.
+	     \033[01;34m: it makes the text bold blue.
+	     \e]0; : it starts an escape sequence for terminal window title 
+	     \a: it ends the title sequence.
+	     $: it specifies whether the user is root(#) or otherwise($)
+	     \[: start a sequence of non displayd charachters
+	     \]: close or end a sequence of non-displayed characters.
+	    
